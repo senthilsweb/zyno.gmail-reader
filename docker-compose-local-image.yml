@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  email.reader:
+    container_name: email.reader
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    command: node app.js
+    environment:
+      - NAME=
+      - EMAIL=
+      - USERNAME=
+      - PASSWORD=
+      - IMAP_HOST=imap.gmail.com
+      - IMAP_PORT=993
+      - IMAP_TLS=true
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_SSL=true
+      - EMAIL_SEARCH_FILTER_SINCE='Dec 25, 2021'
+      - EMAIL_SEARCH_FILTER_BEFORE='Dec 31, 2021'
+      - EMAIL_ATTACHMENT_EXT_ALLOWED=.pdf|.csv|.xls|.xlsx
+      - EMAIL_MESSAGES_DIRECTORY=/emails/messages/
+      - EMAIL_ATTACHMENTS_DIRECTORY=/emails/attachments/
+    volumes:
+        - ./emails:/usr/src/emails
+    restart: unless-stopped
+    tty: true

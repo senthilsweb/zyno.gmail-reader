@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM arm32v7/node
 
 RUN apk add --update nodejs npm
 RUN addgroup -S node && adduser -S node -G node

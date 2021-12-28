@@ -9,7 +9,7 @@ on:
 
 env:
   project: 'zyno.gmail-reader'
-  NAME   : 'senthilsweb/zyno.gmail-reader'
+  NAME   : senthilsweb/zyno.gmail-reader
 
 jobs:
   docker:
@@ -39,5 +39,6 @@ jobs:
       - name: build the image
         run: |
           docker buildx build \
-            --tag ${{env.NAME}}:latest,${{ steps.vars.outputs.sha_short }} \
+            --tag ${{env.NAME}}:latest \
+            #--tags ${{ steps.vars.outputs.sha_short }}
             --platform linux/amd64,linux/arm/v7,linux/arm64 .

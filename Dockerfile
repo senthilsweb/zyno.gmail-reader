@@ -1,7 +1,7 @@
-FROM arm32v7/node
+FROM balenalib/raspberry-pi-alpine:latest
 
 RUN apk add --update npm
-#RUN addgroup -S node && adduser -S node -G node
+RUN addgroup -S node && adduser -S node -G node
 RUN mkdir -p /usr/src
 
 WORKDIR /usr/src

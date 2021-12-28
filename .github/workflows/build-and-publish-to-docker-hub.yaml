@@ -39,5 +39,5 @@ jobs:
       - name: build the image
         run: |
           docker buildx build --push \
-            --tags ${{env.NAME}}:latest,${{ steps.vars.outputs.sha_short }} \
+            --tag ${{env.NAME}}:latest \
             --platform linux/amd64,linux/arm/v7,linux/arm64 .

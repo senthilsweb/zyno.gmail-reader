@@ -1,6 +1,6 @@
-FROM alpine:3.14
+FROM resin/rpi-raspbian:latest
 
-RUN apk add --update nodejs npm
+RUN apt update && apt upgrade && apt install nodejs npm
 RUN addgroup -S node && adduser -S node -G node
 RUN mkdir -p /usr/src
 

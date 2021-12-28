@@ -1,6 +1,6 @@
-FROM balenalib/raspberry-pi-alpine:latest
+FROM alpine:3.14
 
-RUN apk add --update npm
+RUN apk add --update nodejs npm
 RUN addgroup -S node && adduser -S node -G node
 RUN mkdir -p /usr/src
 

@@ -1,4 +1,4 @@
-FROM balenalib/raspberry-pi-alpine-node:latest
+FROM arm64v8/node:latest
 
 #RUN apk add --update npm
 RUN addgroup -S node && adduser -S node -G node

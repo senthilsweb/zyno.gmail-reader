@@ -1,7 +1,7 @@
-FROM arm64v8/node:latest
+FROM alpine:3.14
 
-#RUN apk add --update npm
-#RUN addgroup -S node && adduser -S node -G node
+RUN apk add --update nodejs npm
+RUN addgroup -S node && adduser -S node -G node
 RUN mkdir -p /usr/src
 
 WORKDIR /usr/src

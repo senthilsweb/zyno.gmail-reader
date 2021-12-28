@@ -1,6 +1,6 @@
-FROM resin/rpi-raspbian:latest
+FROM balenalib/raspberry-pi-alpine-node:latest
 
-RUN apt update && apt upgrade && apt install nodejs npm
+#RUN apk add --update npm
 RUN addgroup -S node && adduser -S node -G node
 RUN mkdir -p /usr/src
 
